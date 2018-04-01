@@ -1,47 +1,56 @@
 importScripts('https://cdn.onesignal.com/sdks/OneSignalSDK.js');
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.0.0/workbox-sw.js")
 
-var EXTRA_FILES = [];
+workbox.setConfig({
+  debug: false
+})
 
-var CHECKSUM = "v1";
+workbox.routing.registerRoute(
+  new RegExp('.*(?:googleapis|gstatic)\.com.*$'),
+  workbox.strategies.staleWhileRevalidate(),
+)
 
-var FILES = [
-  '/offline.html',
-  'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css',
-  '/js/materialize.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js',
-  'https://fonts.googleapis.com/icon?family=Material+Icons',
-  '/img/ico.jpg',
-  '/img/loader.gif'
-].concat(EXTRA_FILES || []);
+workbox.routing.registerRoute(
+  new RegExp('.*\.js'),
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'js-cache',
+  })
+)
 
-var CACHENAME = 'mindsharp-' + CHECKSUM;
+workbox.routing.registerRoute(
+  new RegExp('.*\.css'),
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'css-cache',
+  })
+)
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(caches.open(CACHENAME).then(function(cache) {
-    return cache.addAll(FILES);
-  }));
-});
+workbox.routing.registerRoute(
+  new RegExp('.*\.woff2'),
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'font-cache',
+  })
+)
 
-self.addEventListener('activate', function(event) {
-  return event.waitUntil(caches.keys().then(function(keys) {
-    return Promise.all(keys.map(function(k) {
-      if (k != CACHENAME && k.indexOf('mindsharp-') == 0) {
-        return caches.delete(k);
-      } else {
-        return Promise.resolve();
-      }
-    }));
-  }));
-});
+workbox.routing.registerRoute(
+  /\.(?:png|gif|jpg|jpeg|svg|ico)$/,
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'image-cache',
+  })
+)
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response=>response||fetch(event.request))
-      .catch(() => {
-        if(event.request.mode == 'navigate') {
-          return caches.match('/offline.html');
-        }
+workbox.routing.registerRoute(
+  new RegExp('^((?!dashboard).)*$'),
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'page-cache',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 10,
+        maxAgeSeconds: 7 * 24 * 60 * 60
       })
-  );
-});
+    ]
+  })
+)
+
+workbox.routing.setCatchHandler(({ url, event, params }) => {
+  return caches.match('/offline.html')
+})
