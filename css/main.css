@@ -1,0 +1,31 @@
+* {
+  font-family: 'Noto Sans Thai UI','Noto Sans' !important;
+  font-style: normal;
+  font-weight: 400;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+.riffyfullH {
+  height: 100vh !important;
+}
+.carousel-slider {
+height: 400px !important;
+}
+.dropdown-content {
+  width: 250px  !important;
+}
+.header {
+  font-weight: 300;
+}
+.light {
+  font-weight: 300;
+}
+blockquote {
+  border-left: "5px solid #2196f3";
+}
