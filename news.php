@@ -1,5 +1,5 @@
 <?
-  include('api/Phrasedown.php');
+  include('news/api/Phrasedown.php');
 
   $res=glob("news/".$_REQUEST['id'].".*");
 
@@ -146,8 +146,7 @@
               <table class="bordered highlight">
                 <tbody>
                   <?
-                    $dir="news/";
-                    $file = array_diff(scandir($dir,1), array('.', '..','index.php'));
+                    $file = str_replace('news/','',array_diff(glob('news/*.md'), array('news/README.md')));
                     $page=1;
                     if(count($file)<=5)
                     {
