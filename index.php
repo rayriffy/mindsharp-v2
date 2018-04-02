@@ -135,7 +135,7 @@
                       {
                         $count_news=5;
                       }
-                      for($i=1;$i<=$count_news;$i++)
+                      for($i=0;$i<=$count_news;$i++)
                       {
                         $file_ex=explode(".",$file[$i]);
                     ?>

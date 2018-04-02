@@ -156,9 +156,8 @@
                     {
                       $count_news=5;
                     }
-                    for($i=1;$i<=$count_news;$i++) //count($file)-2
+                    for($i=0;$i<=$count_news;$i++)
                     {
-                      //echo "filename:" . $file[$i] . "<br>";
                       $file_ex=explode(".",$file[$i]);
                   ?>
                   <tr>
