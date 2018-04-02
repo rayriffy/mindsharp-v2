@@ -165,7 +165,7 @@
                   <tbody>
                     <?
                       $dir="news/";
-                      $file = array_diff(scandir($dir,1), array('.', '..','index.php'));
+                      $file = array_diff(scandir($dir,1), array('.', '..','index.php','.git','.circleci','README.md','api'));
                       if(count($file)<=5)
                       {
                         $count_news=count($file);
@@ -174,9 +174,8 @@
                       {
                         $count_news=5;
                       }
-                      for($i=1;$i<=$count_news;$i++) //count($file)-2
+                      for($i=1;$i<=$count_news;$i++)
                       {
-                        //echo "filename:" . $file[$i] . "<br>";
                         $file_ex=explode(".",$file[$i]);
                     ?>
                     <tr>
