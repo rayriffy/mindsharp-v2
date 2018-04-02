@@ -126,8 +126,7 @@
                 <table class="bordered highlight">
                   <tbody>
                     <?
-                      $dir="news/";
-                      $file = array_diff(scandir($dir,1), array('.', '..','index.php','.git','.circleci','README.md','api'));
+                      $file = str_replace('news/','',array_diff(glob('news/*.md'), array('news/README.md')));
                       if(count($file)<=5)
                       {
                         $count_news=count($file);
