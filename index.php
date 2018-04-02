@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,61 +9,23 @@
     <META HTTP-EQUIV="Refresh" CONTENT="0;URL=js_err.html">
    </noscript>
   <title>Mindsharp Story</title>
-
-  <!-- CSS -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" lazyload="1">
-
-
-  <!-- Theme Color -->
-  <? /* <meta name="theme-color" content="#01579b">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Sans+Thai+UI:300,400,500,700|Material+Icons&amp;subset=thai" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <meta name="theme-color" content="#01579b">
   <meta name="msapplication-navbutton-color" content="#01579b">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#01579b"> */ ?>
-
-  <!-- Detail -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#01579b">
   <meta name="Title" content="Mindsharp Story">
   <meta name="Keywords" content="Minecraft,Mindsharp,Survival">
   <meta name="Description" content="A Minecraft Server">
-
-  <!-- Facebook Open Greph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mindsharp Story" />
   <meta property="og:site_name" content="Mindsharp Story"/>
   <meta property="og:description" content="A Minecraft Server" />
   <meta property="og:image" content="img/pr1.jpg" />
-
-  <!-- PWA standard -->
   <link rel="icon" type="image/jpg" href="img/ico.jpg">
   <link rel="manifest" href="manifest.json">
 
-  <style>
-    body {
-    	display: flex;
-    	min-height: 100vh;
-    	flex-direction: column;
-    }
-    main {
-    	flex: 1 0 auto;
-    }
-    .riffyfullH {
-    	height: 100vh !important;
-    }
-    .carousel-slider {
-    height: 400px !important;
-    }
-    .dropdown-content {
-    	width: 250px  !important;
-    }
-    .header {
-    	font-weight: 300;
-    }
-    .light {
-    	font-weight: 300;
-    }
-    blockquote {
-    	border-left: "5px solid #2196f3";
-    }
-  </style>
   <style>
     body {
     	overflow: hidden;
@@ -165,7 +127,7 @@
                   <tbody>
                     <?
                       $dir="news/";
-                      $file = array_diff(scandir($dir,1), array('.', '..','index.php'));
+                      $file = array_diff(scandir($dir,1), array('.', '..','index.php','.git','.circleci','README.md','api'));
                       if(count($file)<=5)
                       {
                         $count_news=count($file);
@@ -174,9 +136,8 @@
                       {
                         $count_news=5;
                       }
-                      for($i=1;$i<=$count_news;$i++) //count($file)-2
+                      for($i=1;$i<=$count_news;$i++)
                       {
-                        //echo "filename:" . $file[$i] . "<br>";
                         $file_ex=explode(".",$file[$i]);
                     ?>
                     <tr>
@@ -284,7 +245,7 @@
     </div>
   </div>
 
-  <script src="js/materialize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="js/init.js" async></script>
 
   <!-- Service Worker -->
