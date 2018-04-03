@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Deploy to Server
           command: |
-            ssh -i ~/.ssh/id_rsa_c72952e0f033ca911b303a961f34a7fd circleci@deploy.rayriffy.com 'rm -rf ~/production/mindsharp.rayriffy.com/news  && cd ~/production/mindsharp.rayriffy.com && git pull && ln -s ~/landing/mindsharp-news ~/production/mindsharp.rayriffy.com/news'
+            ssh -i ~/.ssh/id_rsa_c72952e0f033ca911b303a961f34a7fd circleci@deploy.rayriffy.com './deploy.sh -v2'
 workflows:
   version: 2
   build-and-deploy:
