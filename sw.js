@@ -40,12 +40,12 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   new RegExp('^((?!dashboard).)*$'),
-  workbox.strategies.staleWhileRevalidate({
+  workbox.strategies.NetworkFirst({
     cacheName: 'page-cache',
     plugins: [
       new workbox.expiration.Plugin({
         maxEntries: 10,
-        maxAgeSeconds: 7 * 24 * 60 * 60
+        maxAgeSeconds: 1 * 60 * 60
       })
     ]
   })
