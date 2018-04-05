@@ -233,7 +233,7 @@
               </div>
             </div>
             <div class="row">
-              <a id="signinbtn" href="login.php" class="btn light-blue waves-effect waves-light col s12">SIGN IN</a>
+              <button id="signinbtn" class="btn light-blue waves-effect waves-light col s12">SIGN IN</button>
             </div>
           </div>
         </div>
