@@ -23,11 +23,29 @@ jobs:
           name: Deploy to Server
           command: |
             ssh -i ~/.ssh/id_rsa_c72952e0f033ca911b303a961f34a7fd circleci@deploy.rayriffy.com './deploy.sh -v2'
+  deploy-beta:
+    machine:
+        enabled: true
+    working_directory: ~/mindsharp
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "c7:29:52:e0:f0:33:ca:91:1b:30:3a:96:1f:34:a7:fd"
+      - run:
+          name: Deploy to Server
+          command: |
+            ssh -i ~/.ssh/id_rsa_c72952e0f033ca911b303a961f34a7fd circleci@deploy.rayriffy.com './deploy.sh -v2b'
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - build
+      - deploy-beta:
+          requires:
+            - build
+          filters:
+            branches:
+              only: raw
       - deploy:
           requires:
             - build

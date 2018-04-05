@@ -74,9 +74,6 @@
   })
 </script>
 <body id="top">
-  <? /*<div class="video-container">
-    <div id="player01"></div>
-  </div> */?>
   <div>
     <nav>
       <div class="nav-wrapper light-blue darken-3">
@@ -236,7 +233,7 @@
               </div>
             </div>
             <div class="row">
-              <a href="login.php" class="btn light-blue waves-effect waves-light col s12">SIGN IN</a>
+              <button id="signinbtn" class="btn light-blue waves-effect waves-light col s12">SIGN IN</button>
             </div>
           </div>
         </div>
@@ -269,6 +266,12 @@
           return false;
         }
       }
+    });
+    $(function() {
+      $("#signinbtn").click(function() {
+        $(this).addClass("disabled");
+        $(this).text("SIGNING IN");
+      });
     });
   </script>
 </body>
