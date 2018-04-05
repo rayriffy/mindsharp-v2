@@ -270,7 +270,7 @@
     $(function() {
       $("#signinbtn").click(function() {
         $(this).addClass("disabled");
-        $(this).text("<div class='preloader-wrapper small active'> <div class='spinner-layer spinner-white-only'> <div class='circle-clipper left'> <div class='circle'></div></div><div class='gap-patch'> <div class='circle'></div></div><div class='circle-clipper right'> <div class='circle'></div></div></div></div> SIGNING IN...");
+        $(this).text("SIGNING IN");
       });
     });
   </script>
