@@ -51,7 +51,7 @@
     	margin:-100px 0 0 -100px;
     }
   </style>
-
+  <script src="/js/jquery.parallax.js"></script>
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
     var OneSignal = window.OneSignal || [];
@@ -92,7 +92,7 @@
     </nav>
   </div>
 
-  <div id="index-banner" class="parallax-container riffyfullH">
+  <div id="index-banner" class="parallax-container riffyfullH" data-jkit="[parallax:strength=1;axis=both]">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
@@ -106,7 +106,15 @@
         <br><br>
       </div>
     </div>
-    <div class=""><img src="img/pr1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax parallax1">
+      <img src="img/par/1.jpg" alt="Unsplashed background img 1">
+    </div>
+    <div class="parallax parallax2">
+      <img src="img/par/2.jpg" alt="Unsplashed background img 2">
+    </div>
+    <div class="parallax parallax3">
+      <img src="img/par/3.jpg" alt="Unsplashed background img 3">
+    </div>
   </div>
   <div class="section white" id="content1">
     <div class="row container">
@@ -273,6 +281,9 @@
         $(this).addClass("disabled");
         $(this).text("SIGNING IN");
       });
+    });
+    $(document).ready(function(){
+      $('body').jKit();
     });
   </script>
 </body>
