@@ -10,7 +10,7 @@
    </noscript>
   <title>Mindsharp Story</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Sans+Thai+UI:300,400,500,700|Material+Icons&amp;subset=thai" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Sans+Thai+UI:300,400,500,700|Material+Icons&amp;subset=thai" rel="stylesheet" />
   <link href="/css/main.css" rel="stylesheet">
   <meta name="theme-color" content="#01579b">
   <meta name="msapplication-navbutton-color" content="#01579b">
@@ -106,7 +106,7 @@
         <br><br>
       </div>
     </div>
-    <div class="parallax"><img src="img/pr1.jpg" alt="Unsplashed background img 1"></div>
+    <div class=""><img src="img/pr1.jpg" alt="Unsplashed background img 1"></div>
   </div>
   <div class="section white" id="content1">
     <div class="row container">
@@ -240,9 +240,10 @@
       </div>
     </div>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script src="js/init.js" async></script>
+  <script src="/js/init.js" async></script>
+  <script src="/api/firebase.js"></script>
 
   <!-- Service Worker -->
   <script type="text/javascript">

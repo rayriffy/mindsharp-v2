@@ -20,5 +20,19 @@
       stopPropagation: false
     });
 
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+    if(Cookies.get('mindkeepalive')==null) {
+      Cookies.set('mindkeepalive', true, { expires: 10 });
+    }
+    else {
+      if(Cookies.get('mindkeepalive')) {
+        // DO ROUTINE CHECK EVERY 20 SECONDS
+        setInterval(function() {
+          if(isAlive()=='DEAD') {
+            Cookies.remove('mindkeepalive');
+          }
+        }, 20000);
+      }
+    }
+
+  });
+})(jQuery);
