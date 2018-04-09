@@ -91,7 +91,7 @@
     </nav>
   </div>
 
-  <div id="index-banner" class="scene riffyfullH">
+  <div id="index-banner" class="parallax-container riffyfullH">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
@@ -105,14 +105,16 @@
         <br><br>
       </div>
     </div>
-    <div data-depth="0.2">
-      <img src="img/par/1.jpg" alt="Unsplashed background img 1">
-    </div>
-    <div data-depth="0.4">
-      <img src="img/par/2.jpg" alt="Unsplashed background img 2">
-    </div>
-    <div data-depth="0.6">
-      <img src="img/par/3.jpg" alt="Unsplashed background img 3">
+    <div class="scene">
+      <div data-depth="0.2">
+        <img src="img/par/1.jpg" alt="Unsplashed background img 1">
+      </div>
+      <div data-depth="0.4">
+        <img src="img/par/2.jpg" alt="Unsplashed background img 2">
+      </div>
+      <div data-depth="0.6">
+        <img src="img/par/3.jpg" alt="Unsplashed background img 3">
+      </div>
     </div>
   </div>
   <div class="section white" id="content1">
