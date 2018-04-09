@@ -51,7 +51,6 @@
     	margin:-100px 0 0 -100px;
     }
   </style>
-  <script src="/js/jquery.parallax.js"></script>
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
     var OneSignal = window.OneSignal || [];
@@ -92,7 +91,7 @@
     </nav>
   </div>
 
-  <div id="index-banner" class="parallax-container riffyfullH" data-jkit="[parallax:strength=1;axis=both]">
+  <div id="index-banner" class="scene riffyfullH">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
@@ -106,13 +105,13 @@
         <br><br>
       </div>
     </div>
-    <div class="parallax parallax1">
+    <div data-depth="0.2">
       <img src="img/par/1.jpg" alt="Unsplashed background img 1">
     </div>
-    <div class="parallax parallax2">
+    <div data-depth="0.4">
       <img src="img/par/2.jpg" alt="Unsplashed background img 2">
     </div>
-    <div class="parallax parallax3">
+    <div data-depth="0.6">
       <img src="img/par/3.jpg" alt="Unsplashed background img 3">
     </div>
   </div>
@@ -249,6 +248,7 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="/js/init.js" async></script>
   <script src="/api/firebase.js"></script>
@@ -282,8 +282,9 @@
         $(this).text("SIGNING IN");
       });
     });
-    $(document).ready(function(){
-      $('body').jKit();
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true
     });
   </script>
 </body>
